@@ -14,7 +14,9 @@ dotenv.config();
 
 const app = express();
 // setup cors
-app.use(cors())
+// allow access from all website/frontend.
+
+app.use(cors({origin:"http://localhost:2000",credentials:true}))
 
 app.use(express.json({ limit: "10mb" }));
 app.use("/uploads", express.static("uploads")); // serve uploaded files
